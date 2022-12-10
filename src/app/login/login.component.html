@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div fxLayoutAlign="center center">
+
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" #loginform="ngForm" (ngSubmit)="loginUser()">
+            <small class="danger">{{msg}}</small>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input #name type="email" matInput [formControl]="emailFormControl" name="email"
+                    placeholder="Ex. rn@example.com" [(ngModel)]="user.email">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput [formControl]="emailFormControlpass" [(ngModel)]="user.password"
+                    name="password">
+
+                <mat-error *ngIf="emailFormControlpass.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+            <button type="submit" mat-raised-button>Login</button>
+        </form>
+
+        <hr>
+
+        <div class="d-flex justify-content-around">
+
+            <div><a matInput href="https://www.google.co.in/">Forgot password</a>
+            </div>
+
+            <div>Not a User?
+
+                <a matInput routerLink="registration">Register</a>
+            </div>
+
+        </div>
+
+    </mat-card>
+
+</div>

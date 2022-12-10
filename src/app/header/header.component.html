@@ -1,0 +1,67 @@
+<p>
+
+    <mat-toolbar style="background-color:cadetblue">
+
+
+        <span class="example"></span>
+        <img src="../../assets/images/name_logo.png" width="60px" height="60px">
+        <span style="font-weight: 30px; font: bolder; color: cadetblue; font-size: 40px; ">Bank</span>
+
+
+
+        <span class="example-spacer123"></span>
+        <span>Welcome {{name}}!! Your money is safe with us.</span>
+
+
+        <span class="example-spacer"></span>
+
+        <button (click)="navigateHome()" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon=home></mat-icon>
+        </button>
+
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>perm_identity</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+
+            <div *ngIf="loggedInBoolean" class="col-sm-12 pt-12">
+                <div class="card" style="background-color:white;">
+                    <div class="card-body">
+                        <p style="background-color: aqua;">
+                            PROFILE DETAILS
+                        </p>
+                        <p>
+                            Name : {{name}}
+                        </p>
+                        <p>
+                            Cont : {{contactNumber}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 pt-12">
+                <div class="card" style="background-color:white;">
+                    <div class="card-body">
+                        <button (click)="logOut()">
+                            <mat-icon>settings_power</mat-icon>{{loggedInStatus}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </mat-menu>
+
+
+
+
+
+
+    </mat-toolbar>
+</p>

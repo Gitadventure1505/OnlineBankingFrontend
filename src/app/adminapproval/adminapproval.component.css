@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+}
+
+tr:hover {
+    background-color: coral;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: antiquewhite;
+}
+
+th {
+    background-color: #909f23;
+    color: white;
+}
+
+mat-tab-group {
+    margin-bottom: 48px;
+}
+
+mat-tab {
+    background-color: #909f23;
+    color: white;
+}
+
+.btn {
+    color: black;
+    width: 120px;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+
+}

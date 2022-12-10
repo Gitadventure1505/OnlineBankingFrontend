@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container">
+    <label style="color: white">{{msg}}</label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th> Status </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of getAllUsers">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.contactNumber}}</td>
+                <td>
+                    <button type="button" (click)="approveUser(user.id)" class=" btn btn-primary">Approve</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

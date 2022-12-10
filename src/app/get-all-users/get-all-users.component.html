@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th> Access to Application </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of getAllUsers">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.contactNumber}}</td>
+                <td>{{user.status}}
+                </td>
+            </tr>>
+        </tbody>
+    </table>
+
+</div>

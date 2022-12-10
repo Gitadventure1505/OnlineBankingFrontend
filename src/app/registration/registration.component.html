@@ -1,0 +1,66 @@
+<p>registration works!</p>
+<div fxLayoutAlign="center center">
+
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Signup to use Online Banking</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" #registerform="ngForm" (ngSubmit)="RegisterUser()">
+            <small class="danger">{{msg}}</small>
+
+            <mat-form-field>
+                <mat-label>name</mat-label>
+                <input type="text" matInput [formControl]="registerFormControl" [(ngModel)]="user.name" name="name">
+
+                <mat-error *ngIf="registerFormControl.hasError('required')">
+                    name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="email" matInput [formControl]="registerFormControlemail" name="email"
+                    [(ngModel)]="user.email">
+                <mat-error *ngIf="registerFormControlemail.hasError('email')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="registerFormControlemail.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>contactNumber</mat-label>
+                <input type="number" matInput [formControl]="registerFormControlMobile" [(ngModel)]="user.contactNumber"
+                    name="contactNumber">
+
+                <mat-error *ngIf="registerFormControlMobile.hasError('required')">
+                    contactNumber is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput [formControl]="registerFormControlPass" [(ngModel)]="user.password"
+                    name="password">
+
+                <mat-error *ngIf="registerFormControlPass.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+
+            <button type="submit" mat-raised-button>Register</button>
+        </form>
+
+        <hr>
+
+
+
+    </mat-card>
+
+</div>
