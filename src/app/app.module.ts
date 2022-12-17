@@ -29,6 +29,11 @@ import { AdminapprovalComponent } from './adminapproval/adminapproval.component'
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddaccountuserslistComponent } from './addaccountuserslist/addaccountuserslist.component';
 import { AccountComponent } from './account/account.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { DepositcashComponent } from './depositcash/depositcash.component';
+import { WithdrawcashComponent } from './withdrawcash/withdrawcash.component';
+import { TransfercashComponent } from './transfercash/transfercash.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -46,6 +51,11 @@ import { AccountComponent } from './account/account.component';
     AdminapprovalComponent,
     AddaccountuserslistComponent,
     AccountComponent,
+    TransactionHistoryComponent,
+    DepositcashComponent,
+    WithdrawcashComponent,
+    TransfercashComponent,
+
 
     //BackgroundimageComponent
   ],
@@ -64,8 +74,14 @@ import { AccountComponent } from './account/account.component';
     MatToolbarModule,
     HttpClientModule,
     MatIconModule,
+    MatProgressBarModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      closeButton: true,
+      preventDuplicates: true,
+      progressAnimation: 'decreasing'
+    }),
     MatSlideToggleModule,
     MatTabsModule
 

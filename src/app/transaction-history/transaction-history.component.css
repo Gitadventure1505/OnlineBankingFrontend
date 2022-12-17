@@ -19,11 +19,6 @@ th {
     color: white;
 }
 
-mat-tab-group {
-    margin-bottom: 48px;
-}
-
-mat-tab {
-    background-color: #909f23;
-    color: white;
+.example-margin {
+    margin: 10px;
 }

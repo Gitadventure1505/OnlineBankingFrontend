@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Account Number</th>
+                <th>Account holder Mail id</th>
+                <th>Transaction amount</th>
+                <th>Transaction time</th>
+                <th>Account Balance</th>
+                <th>From Account number</th>
+                <th>To Account Number</th>
+                <th>Transaction Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of TransactionsList; let i = index">
+                <td>{{i}}</td>
+                <td>{{transaction.accountnum}}</td>
+                <td>{{transaction.customermail}}</td>
+                <td>{{transaction.transferamount}}</td>
+                <td>{{transaction.transactiontime}}</td>
+                <td>{{transaction.balance}}</td>
+                <td>{{transaction.fromaccount}}</td>
+                <td>{{transaction.toaccount}}</td>
+                <td>{{transaction.transactiontype}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <button style="position:absolute;top: 100px;right:0;" class="card-link btn btn-primary" (click)="back()"> Go to
+        previous page</button>>
+
+</div>

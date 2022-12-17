@@ -9,14 +9,14 @@ import { Updatestatus } from '../classes/updatestatus';
 })
 export class AdminServicesService {
 
-  isAdmin: string = '';
+  isAdmin: any;
 
 
   constructor(private _http: HttpClient, private router: Router) { }
 
 
   public isAdminFun(): boolean {
-    //this.isAdmin = localStorage.getItem('isAdmin');
+    this.isAdmin = localStorage.getItem('isAdmin');
     console.log(localStorage.getItem('isAdmin'))
     console.log(localStorage.getItem('name'))
     console.log(this.isAdmin + 'inside isAdminFun');

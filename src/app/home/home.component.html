@@ -1,6 +1,48 @@
 <app-header></app-header>
 <p>home works!</p>
 
-<mat-card>
-    <button matInput routerLink="/getAllUsers">getAllUsers</button>
-</mat-card>
+
+<div class="row">
+    <div class="col-sm-3 pt-3">
+        <div class="card" style="background-color:darkcyan;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-size: large;; color:darkred" class="card-title">View accounts
+                </h4>
+                <p class="card-text">View primary and secondary account to the Users</p>
+                <button class="card-link btn btn-primary" matInput routerLink="/account">View
+                    Accounts </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 pt-3">
+        <div class="card" style="background-color:darkcyan;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-size: large; color:darkred" class="card-title">Deposit Cash
+                </h4>
+                <p class="card-text">Deposit your cash into your Primary and savings accounts</p>
+                <button class="card-link btn btn-primary" (click)="depositmoney()">Deposit
+                    cash </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 pt-3">
+        <div class="card" style="background-color:darkcyan;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-size: large; color:darkred" class="card-title">Withdraw Money
+                </h4>
+                <p class="card-text">Withdraw your money from primary/Savings accounts</p>
+                <button class="card-link btn btn-primary" (click)="Withdrawmoney()">Withdraw cash </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 pt-3">
+        <div class="card" style="background-color:darkcyan;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-size: large; color:darkred" class="card-title">Transfer Money
+                </h4>
+                <p class="card-text">Transfer your Money to different account</p>
+                <button class="card-link btn btn-primary" (click)="transfermoney()">Transfer money </button>
+            </div>
+        </div>
+    </div>
+</div>

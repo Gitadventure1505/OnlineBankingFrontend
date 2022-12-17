@@ -1,6 +1,12 @@
 export class Account {
 
-    account_type!: string;
-    customer_mail!: string;
+
+    accountType!: string;
+    customerMail!: string;
+    accountNo!: number;
+    id!: number;
+    balance!: number;
+
+
 
 }

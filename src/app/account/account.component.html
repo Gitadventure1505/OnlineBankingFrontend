@@ -1,11 +1,85 @@
 <app-header></app-header>
-<div class="col-sm-3 pt-3">
-    <div class="card" style="background-color:white;">
-        <div class="card-body">
-            <h4 class="card-title">Add account</h4>
-            <p class="card-text">Add primary and secondary account to the Users</p>
-            <button class="card-link btn btn-primary" matInput routerLink="/addaccountlist">Add
-                Account </button>
+<button style="position:absolute;top: 100px;right:0;" class="card-link btn btn-primary" (click)="back()"> Go to previous
+    page</button>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="primeExists else elseBlock" class="col-sm-3 pt-3">
+            <div class="card" style="background-color:white;">
+                <div class="card-body">
+                    <h4 style="font-size: large;; color:darkred" class="card-title">PRIMARY ACCOUNT</h4>
+                    <p class="card-text">You can view credit, debit of your primary account</p>
+                    <p style="color: darkcyan;">Balance : {{account.balance}}</p>
+                    <button class="card-link btn btn-primary" matInput
+                        (click)="viewTransactions(account.accountType)">View all
+                        Transactions
+                    </button>
+                </div>
+            </div>
         </div>
+        <ng-template #elseBlock>
+            <div class="col-sm-3 pt-3">
+                <div class="card" style="background-color:white;">
+                    <div class="card-body">
+                        <h4 style="font-size: large;; color:darkred" class="card-title">PRIMARY ACCOUNT</h4>
+                        <div *ngIf="isAdmin">
+                            <p class="card-text">Add primary account for this User</p>
+
+                            <button style="color:darkgray " class="card-link btn btn-warning"
+                                (click)="createPrimaryAccount('primary')">
+
+
+                                <mat-icon style="width: 50px;height: 50px;font-size: 40px;">add_circle_outline
+                                </mat-icon>
+                                <p>Add Primary account</p>
+                            </button>
+                        </div>
+
+                        <div *ngIf="!isAdmin">
+                            <h4>Contact nearby RN Bank branch to create your Primary account</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <div *ngIf="savingsExists else elseBlock1" class="col-sm-3 pt-3">
+            <div class="card" style="background-color:white;">
+                <div class="card-body">
+                    <h4 style="font-size: large;; color:darkred" class="card-title">SAVINGS ACCOUNT</h4>
+                    <p class="card-text">You can view credit, debit of your savings account</p>
+                    <p style="color: darkcyan;">Balance : {{savingsaccount.balance}}</p>
+                    <button class="card-link btn btn-primary" matInput
+                        (click)="viewTransactions(savingsaccount.accountType)">View all
+                        Transactions
+                    </button>
+                </div>
+            </div>
+        </div>
+        <ng-template #elseBlock1>
+            <div class="col-sm-3 pt-3">
+                <div class="card" style="background-color:white;">
+                    <div class="card-body">
+                        <h4 style="font-size: large;; color:darkred" class="card-title">SAVINGS ACCOUNT</h4>
+                        <div *ngIf="isAdmin">
+                            <p class="card-text">Add savings account for this User</p>
+
+                            <button style="color:darkgray " class="card-link btn btn-warning"
+                                (click)="createPrimaryAccount('savings')">
+
+
+                                <mat-icon style="width: 50px;height: 50px;font-size: 40px;">add_circle_outline
+                                </mat-icon>
+                                <p>Add Savings account</p>
+                            </button>
+                        </div>
+
+                        <div *ngIf="!isAdmin">
+                            <h4>Contact nearby RN Bank branch to create your Savings account</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>

@@ -10,6 +10,10 @@ import { AuthorizationGuard } from './guards/authorization.guard';
 import { AdminapprovalComponent } from './adminapproval/adminapproval.component';
 import { AddaccountuserslistComponent } from './addaccountuserslist/addaccountuserslist.component';
 import { AccountComponent } from './account/account.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { DepositcashComponent } from './depositcash/depositcash.component';
+import { TransfercashComponent } from './transfercash/transfercash.component';
+import { WithdrawcashComponent } from './withdrawcash/withdrawcash.component';
 
 
 
@@ -22,8 +26,11 @@ const routes: Routes = [
   { path: 'adminhome', component: AdminHomeComponent, canActivate: [AuthGuardGuard, AuthorizationGuard] },
   { path: 'adminapprove', component: AdminapprovalComponent, canActivate: [AuthGuardGuard, AuthorizationGuard] },
   { path: 'addaccountlist', component: AddaccountuserslistComponent, canActivate: [AuthGuardGuard, AuthorizationGuard] },
-  { path: 'account', component: AccountComponent, canActivate: [AuthGuardGuard] }
-
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuardGuard] },
+  { path: 'transactionHistory', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard] },
+  { path: 'depositcash', component: DepositcashComponent, canActivate: [AuthGuardGuard] },
+  { path: 'withdrawcash', component: WithdrawcashComponent, canActivate: [AuthGuardGuard] },
+  { path: 'transfercash', component: TransfercashComponent, canActivate: [AuthGuardGuard] }
 
 ];
 

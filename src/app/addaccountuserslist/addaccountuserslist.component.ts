@@ -36,7 +36,12 @@ export class AddaccountuserslistComponent implements OnInit {
 
 
   addViewAccount(mail: string) {
-    console.log(mail);
+
+    this.adminService.UserMailToView = mail;
     this.router.navigate(['/account']);
+  }
+
+  back() {
+    this.router.navigate(['/adminhome']);
   }
 }

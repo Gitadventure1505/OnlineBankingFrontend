@@ -9,11 +9,12 @@ import { User } from './user';
 })
 export class AdminService {
 
-
   url: string = "http://localhost:8082/user/get";
   URLgetnewusers: string = "http://localhost:8082/user/getNewUsers"
   urlChangestat: string = "http://localhost:8082/update";
-  urlgetExistingUsers: string = "http://localhost:8082/user/getExistingUsers"
+  //urlgetExistingUsers: string = "http://localhost:8082/user/getExistingUsers"
+  public UserMailToView!: string;
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,7 +31,7 @@ export class AdminService {
   }
 
   public getExistingUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.urlgetExistingUsers);
+    return this.httpClient.get<User[]>(this.url);
 
 
   }
@@ -39,6 +40,9 @@ export class AdminService {
   public updateStatus(statUpd: Updatestatus): Observable<any> {
     return this.httpClient.post<any>("http://localhost:8082/user/update", statUpd)
   }
+
+
+
 
 
 }
