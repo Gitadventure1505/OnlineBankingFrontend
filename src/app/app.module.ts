@@ -34,6 +34,7 @@ import { DepositcashComponent } from './depositcash/depositcash.component';
 import { WithdrawcashComponent } from './withdrawcash/withdrawcash.component';
 import { TransfercashComponent } from './transfercash/transfercash.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ChequebookapprovalsComponent } from './chequebookapprovals/chequebookapprovals.component';
 
 
 
@@ -55,6 +56,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     DepositcashComponent,
     WithdrawcashComponent,
     TransfercashComponent,
+    ChequebookapprovalsComponent,
 
 
     //BackgroundimageComponent

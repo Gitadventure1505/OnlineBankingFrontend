@@ -117,25 +117,38 @@ export class DepositcashComponent implements OnInit {
   }
 
   depositcash() {
-
+    this.progressBar = true;
     this.transaction.transactiontype = 'deposit';
     this.transaction.customermail = this.mail;
     this.transaction.accountnum = this.AccountNum;
     console.log(this.transaction);
+    console.log('Ram' + this.transaction.transferamount)
 
 
-    if (this.selectedAccountType == 'savings') {
+    if (this.selectedAccountType == 'savings' && this.transaction.transferamount !== undefined) {
       this.accountService.createsavingsTransaction(this.transaction).subscribe(data => {
 
         this.msg = data.message;
         console.log(this.msg)
+
+        setTimeout(() => {
+          this.toastr.info('Money transferred successfully', this.msg);
+          this.progressBar = false;
+          this.successMsg = true;
+
+        }, 2500);
+
+        setTimeout(() => {
+          this.router.navigate(['/home'])
+
+        }, 6000);
 
 
 
       })
 
     }
-    else if (this.selectedAccountType == 'primary') {
+    else if (this.selectedAccountType == 'primary' && this.transaction.transferamount !== undefined) {
       this.accountService.createprimaryTransaction(this.transaction).subscribe(data => {
 
         this.msg = data.message;
@@ -145,30 +158,30 @@ export class DepositcashComponent implements OnInit {
         console.log(data)
 
 
+        setTimeout(() => {
+          this.toastr.info('Money transferred successfully', this.msg);
+          this.progressBar = false;
+          this.successMsg = true;
+
+        }, 2500);
+
+        setTimeout(() => {
+          this.router.navigate(['/home'])
+
+        }, 6000);
+
+
 
       })
 
     }
     else {
       this.msg = 'transaction request not sent/unsuccessful';
+      this.toastr.error('fill all mandatory fields');
       console.log('transaction request not sent/unsuccessful');
+      this.progressBar = false;
     }
 
-
-    this.progressBar = true;
-
-
-    setTimeout(() => {
-      this.toastr.success('Money transferred successfully', this.msg);
-      this.progressBar = false;
-      this.successMsg = true;
-
-    }, 2500);
-
-    setTimeout(() => {
-      this.router.navigate(['/home'])
-
-    }, 6000);
 
 
 

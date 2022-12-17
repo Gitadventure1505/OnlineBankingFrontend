@@ -25,6 +25,16 @@ export class AccountComponent implements OnInit {
 
 
   isAdmin: boolean = false;
+  savingsAccountNum: number = 0;
+  primaryAccountNum: number = 0;
+
+
+  isPrimaryChequeAvailable: boolean = false
+  isSavingsChequeAvailable: boolean = false
+  isPrimaryChequeRequested: boolean = false
+  isSavingsChequeRequested: boolean = false
+
+
 
 
 
@@ -52,6 +62,11 @@ export class AccountComponent implements OnInit {
       this.account = data;
       this.accountService.accountNoToView = this.account.accountNo;
       this.accountService.accountTypeToView = this.account.accountType;
+      this.primaryAccountNum = this.account.accountNo;
+      this.isPrimaryChequeAvailable = this.account.isChequeBookAvailable;
+      this.isPrimaryChequeRequested = this.account.isRequested;
+
+      console.log(this.isPrimaryChequeAvailable + 'isPrimaryChequeAvailable')
 
       if (this.account.accountNo == 0) {
 
@@ -73,6 +88,9 @@ export class AccountComponent implements OnInit {
       this.savingsaccount = data;
       this.accountService.savingsAccountNoToView = this.savingsaccount.accountNo;
       //this.accountService.accountTypeToView = this.account.accountType;
+      this.savingsAccountNum = this.savingsaccount.accountNo;
+      this.isSavingsChequeAvailable = this.savingsaccount.isChequeBookAvailable;
+      this.isSavingsChequeRequested = this.savingsaccount.isRequested;
 
       if (this.savingsaccount.accountNo == 0) {
 
@@ -115,8 +133,12 @@ export class AccountComponent implements OnInit {
 
     })
 
-    this.router.navigate(['/addaccountlist']);
+
     this.toastr.success(accountType + ' account added successfully to this User', 'Successfully added')
+
+    setTimeout(() => {
+      this.router.navigate(['/addaccountlist']);
+    }, 2000);
 
   }
 
@@ -130,7 +152,39 @@ export class AccountComponent implements OnInit {
 
   }
 
+  requestChequeBookForPrimary() {
 
 
+    this.accountService.requestForChequeBook(this.primaryAccountNum).subscribe(data => {
+      this.toastr.success(data.message);
+    })
+
+
+
+    setTimeout(() => {
+
+      window.location.reload();
+      this.ngOnInit();
+
+    }, 2000);
+
+  }
+
+  requestChequeBookForSavings() {
+
+    this.accountService.requestForChequeBook(this.savingsAccountNum).subscribe(data => {
+      this.toastr.success(data.message);
+
+    })
+
+    setTimeout(() => {
+
+      window.location.reload();
+      this.ngOnInit();
+
+    }, 2000);
+
+
+  }
 
 }

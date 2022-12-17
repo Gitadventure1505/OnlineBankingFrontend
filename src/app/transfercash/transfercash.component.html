@@ -1,1 +1,83 @@
-<p>transfercash works!</p>
+<app-header></app-header>
+
+<div fxLayoutAlign="center center">
+
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Transfer your money</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" #depositform="ngForm" (ngSubmit)="transferMoney()">
+            <small *ngIf="successMsg" class="danger">{{msg}}</small>
+
+
+
+            <br>
+            <div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>AccountType</mat-label>
+
+                    <select #accounttypetemplatevariable (change)="onSelected()" matNativeControl required>
+                        <option default></option>
+                        <option *ngIf="primaryAvailable" value="primary">primary</option>
+                        <option *ngIf="savingsAvailable" value="savings">savings</option>
+                    </select>
+                </mat-form-field>
+            </div>
+
+
+
+
+
+
+
+            <mat-form-field>
+                <mat-label>Account Number</mat-label>
+                <input [readonly]="true" type="text" matInput [formControl]="AccountNumberFormControl"
+                    [(ngModel)]="transaction.accountnum" value="{{AccountNum}}" name="accountnum">
+
+                <mat-error *ngIf="AccountNumberFormControl.hasError('required')">
+                    AccountNumber is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+
+            <mat-form-field>
+                <mat-label>To Account Number</mat-label>
+                <input type="text" matInput [formControl]="ToAccountNumberFormControl"
+                    [(ngModel)]="transaction.toaccount" name="toaccount">
+
+                <mat-error *ngIf="ToAccountNumberFormControl.hasError('required')">
+                    To AccountNumber is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+
+
+            <mat-form-field>
+                <mat-label>Amount to Transfer</mat-label>
+                <input type="number" matInput [formControl]="transferamountFormControl"
+                    [(ngModel)]="transaction.transferamount" name="transferamount">
+
+                <mat-error *ngIf="transferamountFormControl.hasError('required')">
+                    Amount is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <button type="submit" mat-raised-button>Transfer</button>
+        </form>
+
+        <mat-progress-bar *ngIf="progressBar" mode="indeterminate"></mat-progress-bar>
+
+        <hr>
+
+
+
+    </mat-card>
+
+</div>

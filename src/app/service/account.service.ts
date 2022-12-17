@@ -9,6 +9,8 @@ import { Transaction } from '../classes/transaction';
   providedIn: 'root'
 })
 export class AccountService {
+
+
   getSavingsTransaction(accountNum: number) {
     let urlsaveTransaction: string = "http://localhost:8082/account/getSavingsTransactions?accountNum=" + accountNum;
     return this.http_client.get<Transaction[]>(urlsaveTransaction);
@@ -80,6 +82,24 @@ export class AccountService {
 
   }
 
+
+  generateNewChequeBook(accountNum: any): Observable<any> {
+
+    let url = 'http://localhost:8082/account/generateChequeBookForAccount?accountNum=' + accountNum;
+    return this.http_client.get<any>(url);
+  }
+
+  getUsersRequestedForChequebook(): Observable<Account[]> {
+    let url = 'http://localhost:8082/account/getAccountsByIsRequested';
+    return this.http_client.get<Account[]>(url);
+
+  }
+
+
+  requestForChequeBook(AccountNum: number): Observable<any> {
+    let url = 'http://localhost:8082/account/requestForChequeBook?accountNum=' + AccountNum
+    return this.http_client.get<any>(url);
+  }
 
 
 }

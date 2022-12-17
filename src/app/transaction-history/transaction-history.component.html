@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let transaction of TransactionsList; let i = index">
-                <td>{{i}}</td>
+                <td>{{i+1}}</td>
                 <td>{{transaction.accountnum}}</td>
                 <td>{{transaction.customermail}}</td>
                 <td>{{transaction.transferamount}}</td>

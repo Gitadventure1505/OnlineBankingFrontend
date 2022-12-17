@@ -6,6 +6,9 @@ export class Account {
     accountNo!: number;
     id!: number;
     balance!: number;
+    isChequeBookAvailable!: boolean
+    isRequested!: boolean
+    chequeBookNumber!: number
 
 
 

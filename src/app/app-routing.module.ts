@@ -14,6 +14,7 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
 import { DepositcashComponent } from './depositcash/depositcash.component';
 import { TransfercashComponent } from './transfercash/transfercash.component';
 import { WithdrawcashComponent } from './withdrawcash/withdrawcash.component';
+import { ChequebookapprovalsComponent } from './chequebookapprovals/chequebookapprovals.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'transactionHistory', component: TransactionHistoryComponent, canActivate: [AuthGuardGuard] },
   { path: 'depositcash', component: DepositcashComponent, canActivate: [AuthGuardGuard] },
   { path: 'withdrawcash', component: WithdrawcashComponent, canActivate: [AuthGuardGuard] },
-  { path: 'transfercash', component: TransfercashComponent, canActivate: [AuthGuardGuard] }
+  { path: 'transfercash', component: TransfercashComponent, canActivate: [AuthGuardGuard] },
+  { path: 'chequeBookApproval', component: ChequebookapprovalsComponent, canActivate: [AuthGuardGuard, AuthorizationGuard] }
 
 ];
 

@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container">
+    <label style="color: white">{{msg}}</label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>User Mail</th>
+                <th>User Account Number</th>
+                <th>Account type</th>
+                <th> Account Balance </th>
+                <th> Approvals</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of accounts; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{account.customerMail}}</td>
+                <td>{{account.accountNo}}</td>
+                <td>{{account.accountType}}</td>
+                <td>{{account.balance}}</td>
+                <td>
+                    <button type="button" (click)="generatecheque(account.accountNo)"
+                        class=" btn btn-primary">Approve</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
